@@ -17,13 +17,25 @@ import { balanceRouter } from './routes/balance'
 
 // Types for Cloudflare Worker bindings
 type Bindings = {
+n// Types for context variables
+type Variables = {
+  supabase: ReturnType<typeof createClient>
+  merchantId: string
+  apiKey: {
+    id: string
+    merchant_id: string
+    key_type: string
+    is_active: boolean
+    public_key: string
+  }
+}
   SUPABASE_URL: string
   SUPABASE_ANON_KEY: string
   ENVIRONMENT: string
 }
 
 // Create Hono app with types
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>()
 
 // ============================================================================
 // MIDDLEWARE
