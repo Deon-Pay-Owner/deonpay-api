@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 // Types for Cloudflare Worker bindings
 export type Bindings = {
@@ -9,7 +9,7 @@ export type Bindings = {
 
 // Types for context variables
 export type Variables = {
-  supabase: ReturnType<typeof createClient>
+  supabase: SupabaseClient<any>
   merchantId: string
   apiKey: {
     id: string
