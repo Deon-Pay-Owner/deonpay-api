@@ -8,7 +8,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { createClient } from '@supabase/supabase-js'
-import { Bindings, Variables } from'./types'
+import { Bindings, Variables } from './types'
 
 // Import routes
 import { paymentIntentsRouter } from './routes/payment-intents'
@@ -16,11 +16,6 @@ import { customersRouter } from './routes/customers'
 import { refundsRouter } from './routes/refunds'
 import { balanceRouter } from './routes/balance'
 
-// Types for Cloudflare Worker bindings
-  SUPABASE_URL: string
-  SUPABASE_ANON_KEY: string
-  ENVIRONMENT: string
-}
 
 // Create Hono app with types
 const app = new Hono<{ Bindings: Bindings; Variables: Variables }>()
