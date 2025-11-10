@@ -1,0 +1,32 @@
+{
+  "name": "@deonpay/api-worker",
+  "version": "0.1.0",
+  "description": "DeonPay Payment API - Cloudflare Worker with multi-acquirer support",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "payments",
+    "cloudflare",
+    "workers",
+    "deonpay"
+  ],
+  "author": "DeonPay",
+  "license": "MIT",
+  "dependencies": {
+    "hono": "^4.0.0",
+    "zod": "^3.22.4",
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0",
+    "wrangler": "^3.22.0"
+  }
+}
