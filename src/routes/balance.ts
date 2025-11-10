@@ -4,8 +4,9 @@
  */
 
 import { Hono } from 'hono'
+import { Bindings, Variables } from '../types'
 
-const app = new Hono()
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>()
 
 // Get balance transaction
 app.get('/transactions/:id', async (c) => {

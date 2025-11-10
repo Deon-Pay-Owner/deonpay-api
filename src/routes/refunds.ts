@@ -4,9 +4,10 @@
  */
 
 import { Hono } from 'hono'
+import { Bindings, Variables } from '../types'
 import { CreateRefundSchema } from '../schemas/canonical'
 
-const app = new Hono()
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>()
 
 // Create refund
 app.post('/', async (c) => {

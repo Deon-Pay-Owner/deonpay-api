@@ -4,6 +4,7 @@
  */
 
 import { Hono } from 'hono'
+import { Bindings, Variables } from '../types'
 import {
   CreatePaymentIntentSchema,
   UpdatePaymentIntentSchema,
@@ -11,7 +12,7 @@ import {
   CapturePaymentIntentSchema,
 } from '../schemas/canonical'
 
-const app = new Hono()
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>()
 
 // ============================================================================
 // POST /api/v1/payment_intents - Create payment intent

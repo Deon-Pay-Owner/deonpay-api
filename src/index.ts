@@ -8,6 +8,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { createClient } from '@supabase/supabase-js'
+import { Bindings, Variables } from'./types'
 
 // Import routes
 import { paymentIntentsRouter } from './routes/payment-intents'
@@ -16,19 +17,6 @@ import { refundsRouter } from './routes/refunds'
 import { balanceRouter } from './routes/balance'
 
 // Types for Cloudflare Worker bindings
-type Bindings = {
-n// Types for context variables
-type Variables = {
-  supabase: ReturnType<typeof createClient>
-  merchantId: string
-  apiKey: {
-    id: string
-    merchant_id: string
-    key_type: string
-    is_active: boolean
-    public_key: string
-  }
-}
   SUPABASE_URL: string
   SUPABASE_ANON_KEY: string
   ENVIRONMENT: string
